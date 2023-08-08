@@ -8,14 +8,10 @@
 import Foundation
 import UIKit
 
-protocol AlertPresenterProtocol {
-    func show(alertModel: AlertModel)
-}
-
 final class AlertPresenter {
     private weak var viewController: UIViewController?
     
-    init(viewController: UIViewController) {
+    init(_ viewController: UIViewController) {
         self.viewController = viewController
     }
 }

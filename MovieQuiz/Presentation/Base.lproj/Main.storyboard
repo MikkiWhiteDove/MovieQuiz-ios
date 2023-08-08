@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22146" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22122"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="q6A-aL-W1N">
-                                <rect key="frame" x="20" y="57" width="335" height="721"/>
+                                <rect key="frame" x="20" y="60" width="335" height="718"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fmr-Vs-z8I">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="23.333333333333332"/>
@@ -45,13 +45,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Рейтинг этого фильма меньше чем 5?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNW-Eq-aaP" userLabel="Question Label">
-                                        <rect key="frame" x="0.0" y="566" width="335" height="75"/>
+                                        <rect key="frame" x="0.0" y="566" width="335" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                                         <color key="textColor" name="YP White"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="823-dG-mAv">
-                                        <rect key="frame" x="0.0" y="661" width="335" height="60"/>
+                                        <rect key="frame" x="0.0" y="658" width="335" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUp-F5-TSd" userLabel="No Button">
                                                 <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="60"/>
@@ -94,17 +94,23 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="DyH-mU-6YP">
+                                <rect key="frame" x="177.66666666666666" y="396" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="YP Black"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="q6A-aL-W1N" secondAttribute="trailing" constant="20" id="3np-68-aFY"/>
+                            <constraint firstItem="DyH-mU-6YP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6qw-sl-O2y"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="q6A-aL-W1N" secondAttribute="bottom" id="KJ4-jI-mvK"/>
                             <constraint firstItem="q6A-aL-W1N" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Y0H-g6-CBe"/>
                             <constraint firstItem="q6A-aL-W1N" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="oGG-Xq-MBq"/>
+                            <constraint firstItem="DyH-mU-6YP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zp1-t9-LBm"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="DyH-mU-6YP" id="bqs-xA-JCY"/>
                         <outlet property="counterLabel" destination="I7h-FS-4kX" id="1GB-qt-oo6"/>
                         <outlet property="imageView" destination="aiJ-eR-isx" id="wiN-gc-fND"/>
                         <outlet property="noButton" destination="yUp-F5-TSd" id="jdc-Zo-t33"/>
