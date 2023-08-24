@@ -17,7 +17,7 @@ final class AlertPresenter {
 }
 
 extension AlertPresenter: AlertPresenterProtocol {
-    func show(alertModel: AlertModel) {
+    func show(alertModel: AlertModel,id identifier: String) {
         let alert = UIAlertController(
             title: alertModel.title,
             message: alertModel.message,
@@ -26,6 +26,8 @@ extension AlertPresenter: AlertPresenterProtocol {
         let action = UIAlertAction(title: alertModel.buttonText, style: .default) { _ in
             alertModel.buttonAction()
         }
+        alert.view.accessibilityIdentifier = identifier
+//        action.accessibilityIdentifier = identifier
         alert.addAction(action)
         viewController?.present(alert, animated: true)
     }
