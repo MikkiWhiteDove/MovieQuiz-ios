@@ -19,8 +19,7 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
         
         showLoadingIndicator()
         alertPresenter = AlertPresenter(self)
-        imageView.layer.cornerRadius = 20
-        addFontInCode()
+        addFontAndRadiusInCode()
         presenter = MovieQuizPresenter(viewController: self)
         
     }
@@ -36,12 +35,13 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
     
     
     // MARK: - Private functions
-    private func addFontInCode() {
+    private func addFontAndRadiusInCode() {
         noButton.titleLabel?.font = UIFont(name: "YSDisplay-Medium", size: 20)
         yesButton.titleLabel?.font = UIFont(name: "YSDisplay-Medium", size: 20)
         titleLabel.font = UIFont(name: "YSDisplay-Medium", size: 20)
         textLabel.font = UIFont(name: "YSDisplay-Bold", size: 23)
         counterLabel.font = UIFont(name: "YSDisplay-Medium", size: 20)
+        imageView.layer.cornerRadius = 20
     }
     
     // MARK: - Functions
@@ -51,21 +51,14 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
         counterLabel.text = step.questionNumber
     }
     
-    func showFinalResults() {
-        let identifier = "Game results"
-
-        let message = presenter.makeResultMessage()
-        
+    func showAlertModel(with model: AlertModel, id: String) {
         let alertModel = AlertModel(
-            title: "Этот раунд окончен!",
-            message: message,
-            buttonText: "Сыграть ещё раз",
-            buttonAction: { [weak self] in
-                self?.presenter.restartGame()
-            }
+            title: model.title,
+            message: model.message,
+            buttonText: model.buttonText,
+            buttonAction: model.buttonAction
         )
-        
-        alertPresenter?.show(alertModel: alertModel, id: identifier)
+        alertPresenter?.show(alertModel: alertModel, id: id)
     }
     
     func showLoadingIndicator() {
@@ -77,20 +70,7 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
     }
-    
-    func showNetworkError(message: String) {
-        let identifier = "Error Network"
-        hideLoadingIndicator()
-        let model = AlertModel(
-            title: "Ошибка",
-            message: message,
-            buttonText: "Попробовать еще раз") { [weak self] in
-                guard let self = self else { return }
-                self.presenter.restartGame()
-        }
-        alertPresenter?.show(alertModel: model, id: identifier)
-    }
-    
+
     func highlightImageBorder(isCorrectAnswer: Bool) {
         imageView.layer.masksToBounds = true
         imageView.layer.borderWidth = 8

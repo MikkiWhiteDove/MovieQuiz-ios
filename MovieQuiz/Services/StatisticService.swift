@@ -72,7 +72,7 @@ extension StatisticServiceImplementation: StatisticService {
         get {
             guard let data = userDefaults.data(forKey: Keys.bestGame.rawValue),
                   let record = try? JSONDecoder().decode(GameRecord.self, from: data) else {
-                return nil
+                return .init(correct: 0, total: 0, date: Date())
             }
             return record
         }

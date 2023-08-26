@@ -35,6 +35,7 @@
 		DCEA455B2A962C3F007568E9 /* MovieQuizPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEA455A2A962C3F007568E9 /* MovieQuizPresenter.swift */; };
 		DCEA455D2A974180007568E9 /* MovieQuizViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEA455C2A974180007568E9 /* MovieQuizViewControllerProtocol.swift */; };
 		DCEA455F2A974394007568E9 /* MovieQuizViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEA455E2A974394007568E9 /* MovieQuizViewControllerMock.swift */; };
+		DCEA456E2A9A9A27007568E9 /* MovieQuizPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEA456D2A9A9A27007568E9 /* MovieQuizPresenterTests.swift */; };
 		DCEA63F62A5ECBBC007FCE88 /* GameRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEA63F52A5ECBBC007FCE88 /* GameRecord.swift */; };
 		DCEE50F22A84EB3200354478 /* ArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE50F12A84EB3200354478 /* ArrayTests.swift */; };
 		DCEE50F42A84F0BE00354478 /* NetworkRoutingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE50F32A84F0BE00354478 /* NetworkRoutingProtocol.swift */; };
@@ -107,6 +108,7 @@
 		DCEA455C2A974180007568E9 /* MovieQuizViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuizViewControllerProtocol.swift; sourceTree = "<group>"; };
 		DCEA455E2A974394007568E9 /* MovieQuizViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuizViewControllerMock.swift; sourceTree = "<group>"; };
 		DCEA45642A974494007568E9 /* MovieQuizMockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieQuizMockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCEA456D2A9A9A27007568E9 /* MovieQuizPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuizPresenterTests.swift; sourceTree = "<group>"; };
 		DCEA63F52A5ECBBC007FCE88 /* GameRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRecord.swift; sourceTree = "<group>"; };
 		DCEE50E82A84DB1400354478 /* MovieQuizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieQuizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCEE50F12A84EB3200354478 /* ArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayTests.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				DCEE50F82A84F32B00354478 /* MoviesLoaderTests.swift */,
 				DCEE50FA2A84F9E700354478 /* StubNetworkClient.swift */,
 				DCEA455E2A974394007568E9 /* MovieQuizViewControllerMock.swift */,
+				DCEA456D2A9A9A27007568E9 /* MovieQuizPresenterTests.swift */,
 			);
 			path = MovieQuizTests;
 			sourceTree = "<group>";
@@ -545,6 +548,7 @@
 				DCEE50FB2A84F9E700354478 /* StubNetworkClient.swift in Sources */,
 				DCEE50F22A84EB3200354478 /* ArrayTests.swift in Sources */,
 				DCEA455F2A974394007568E9 /* MovieQuizViewControllerMock.swift in Sources */,
+				DCEA456E2A9A9A27007568E9 /* MovieQuizPresenterTests.swift in Sources */,
 				DCEE50F92A84F32B00354478 /* MoviesLoaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

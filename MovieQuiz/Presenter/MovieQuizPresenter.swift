@@ -10,7 +10,7 @@ import UIKit
 
 final class MovieQuizPresenter {
     
-    // MARK: - Private propertiesMovieQuizViewControllerProtocol
+    // MARK: - Private properties
     private weak var viewController: MovieQuizViewControllerProtocol?
     private var questionFactory: QuestionFactoryProtocol?
     private let statisticService: StatisticService!
@@ -57,20 +57,17 @@ final class MovieQuizPresenter {
             assertionFailure("error best message")
             return ""
         }
-        
         let totalPlaysCountLine = "Колличество сыгранных квизов: \(statisticService.gamesCount)"
         let currentGameResultLine = "Ваш результат: \(correctAnswers)\\\(questionsAmount)"
         let bestGameInfoLine = "Рекорд: \(bestGame.correct)\\\(bestGame.total)" + "(\(bestGame.date.dateTimeString))"
         let accuracy = String(format: "%.2f", statisticService.totalAccuracy)
-        let avarageAccuracyLine = "Средняя точность: \(accuracy)"
+        let avarageAccuracyLine = "Средняя точность: \(accuracy)%"
         let resultMessage = [
             currentGameResultLine, totalPlaysCountLine, bestGameInfoLine, avarageAccuracyLine
         ].joined(separator: "\n")
         
         return resultMessage
     }
-    
-    
     
     // MARK: - QuestionFactoryDelegate
     func didReceiveNextQuestion(question: QuizQuestion?) {
@@ -113,7 +110,19 @@ final class MovieQuizPresenter {
     
     private func proceedToNextQuestionOrResult() {
         if isLastQuestion() {
-            viewController?.showFinalResults()
+            statisticService.store(correct: correctAnswers, total: questionsAmount)
+            let id = "Game results"
+            let message = makeResultMessage()
+            let alertModel = AlertModel(
+                title: "Этот раунд окончен!",
+                message: message,
+                buttonText: "Сыграть ещё раз",
+                buttonAction: { [weak self] in
+                    guard let self = self else { return }
+                    self.restartGame()
+                }
+            )
+            viewController?.showAlertModel(with: alertModel, id: id)
         }else {
             switchToNextQuestion()
             questionFactory?.requestNextQuestion()
@@ -133,7 +142,17 @@ extension MovieQuizPresenter: QuestionFactoryDelegate {
     }
     
     func didFailToLoadData(with error: Error) {
+        let id = "Error Network"
         let message = error.localizedDescription
-        viewController?.showNetworkError(message: message)
+        let alertModel = AlertModel(
+            title: "Ошибка",
+            message: message,
+            buttonText: "Попробовать еще раз",
+            buttonAction: { [weak self] in
+                guard let self = self else { return }
+                self.restartGame()
+            }
+        )
+        viewController?.showAlertModel(with: alertModel, id: id)
     }
 }
